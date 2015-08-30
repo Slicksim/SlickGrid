@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="../slick.grid.css" type="text/css"/>
   <link rel="stylesheet" href="../css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
   <link rel="stylesheet" href="../controls/slick.pager.css" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="examples.css" type="text/css"/>
   <style>
     .cell-title {
@@ -23,6 +24,10 @@
       color: gray;
       text-align: right;
       font-size: 10px;
+    }
+
+    .bold  {
+        font-weight:bolder;
     }
   </style>
 </head>
@@ -78,6 +83,8 @@
 <script src="../slick.grid.js"></script>
 <script src="../slick.dataview.js"></script>
 <script src="../controls/slick.pager.js"></script>
+    <script src="../controls/slick.pager.rendering.jqueryui.js"></script>
+    <script src="../controls/slick.pager.rendering.fontawesome.js"></script>
 
 <script>
   var dataView;
@@ -127,7 +134,8 @@
 
     dataView = new Slick.Data.DataView({ inlineFilters: true });
     grid = new Slick.Grid("#myGrid", dataView, columns, options);
-    var pager = new Slick.Controls.Pager(dataView, grid, $("#pager"));
+    var renderer = new Slick.Controls.Rendering.Pager.FontAwesome($("#pager"));
+    var pager = new Slick.Controls.Pager(dataView, grid, renderer);
 
     // wire up model events to drive the grid
     dataView.onRowCountChanged.subscribe(function (e, args) {
