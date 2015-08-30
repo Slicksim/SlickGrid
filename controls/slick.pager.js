@@ -74,7 +74,7 @@
 
         function updatePager(pagingInfo) {
             var state = getNavState();
-            renderer.updatePager(pagingInfo, state)
+            renderer.updatePager(pagingInfo, state, dataView.getItems().length);
         }
 
         init();

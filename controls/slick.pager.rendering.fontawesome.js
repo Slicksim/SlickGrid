@@ -54,7 +54,7 @@
             $container.children().wrapAll("<div class='slick-pager' />");
         }
 
-        function updatePager(pagingInfo, state) {
+        function updatePager(pagingInfo, state, totalRowsCount) {
             
             $container.find(".slick-pager-nav span").removeClass("ui-state-disabled");
             if (!state.canGotoFirst) {
@@ -71,7 +71,6 @@
             }
 
             if (pagingInfo.pageSize == 0) {
-                var totalRowsCount = dataView.getItems().length;
                 var visibleRowsCount = pagingInfo.totalRows;
                 if (visibleRowsCount < totalRowsCount) {
                     $status.text("Showing " + visibleRowsCount + " of " + totalRowsCount + " rows");
